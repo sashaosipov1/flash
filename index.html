@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Boot -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="bounce">
+            <img src="assets/loader.svg" alt="">
+        </div>
+    </div>
+
+    <!-- Quick button -->
+    <button type="button" class="quick_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <img src="assets/star_btn.svg" alt="">
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="configurator">
+                    <div class="left-block">
+                        <button type="button" class="close_btn" data-bs-dismiss="modal">
+                            <img src="assets/Round Button.svg" alt="">
+                        </button>
+                        <img src="assets/left-bg.svg" alt="">
+                    </div>
+                    <div class="right-block">
+                        <div class="main">
+                            <div>
+                                <div class="breadcrumb">
+                                    <div class="breadcrumb_item step active">
+                                        <div class="breadcrumb_number">
+                                            1
+                                        </div>
+                                        <div class="breadcrumb_title">
+                                            Select Chain
+                                        </div>
+                                    </div>
+
+                                    <div class="breadcrumb_item step">
+                                        <div class="breadcrumb_number">
+                                            2
+                                        </div>
+                                        <div class="breadcrumb_title">
+                                            Desired Period
+                                        </div>
+                                    </div>
+
+                                    <div class="breadcrumb_item step">
+                                        <div class="breadcrumb_number">
+                                            3
+                                        </div>
+                                        <div class="breadcrumb_title">
+                                            Contact Information
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab" style="display: none;">
+
+                                    <div class="title">
+                                        Select Preferred Chain
+                                    </div>
+
+                                    <div class="selector" id="selector">
+                                        <button class="selector_item active" onclick="selectorClick(this, 'selector')">
+                                            Ethereum
+                                        </button>
+
+                                        <button class="selector_item" onclick="selectorClick(this, 'selector')">
+                                            BNB Smart Chain
+                                        </button>
+
+                                        <button class="selector_item" onclick="selectorClick(this, 'selector')">
+                                            Polygon
+                                        </button>
+
+                                        <button class="selector_item" onclick="selectorClick(this, 'selector')">
+                                            Tron
+                                        </button>
+
+                                        <button class="selector_item" onclick="selectorClick(this, 'selector')">
+                                            Arbitrum
+                                        </button>
+
+                                        <button class="selector_item" onclick="selectorClick(this, 'selector')">
+                                            Optimism
+                                        </button>
+
+                                        <button class="selector_item" onclick="selectorClick(this, 'selector')">
+                                            Bitcoin
+                                        </button>
+
+                                        <button class="selector_item"
+                                            onclick="selectorClick(this, 'selector' , 'other')">
+                                            Other
+                                        </button>
+                                    </div>
+
+                                    <div class="other" id="other_container" style="position: relative;">
+                                        <label for="other_input" class="other_input_label">Other Chain</label>
+                                        <img src="assets/sobaka.svg" alt="" class="other_input_img">
+                                        <input id="other_input" type="text" class="form-control" autofocus
+                                            placeholder="Type your chain here..." aria-label="Username"
+                                            aria-describedby="addon-wrapping">
+                                    </div>
+                                </div>
+
+                                <div class="tab" style="display: none;">
+
+                                    <div class="title">
+                                        What Period do You Have in Mind?
+                                    </div>
+
+                                    <div class="periods btn-group" id="periods">
+                                        <button class=" calendar" style="background-color: inherit;">
+                                            <img src="assets/calendar.svg" alt="">
+                                        </button>
+
+                                        <button class="periods_item" onclick="selectorClick(this, 'periods')">
+                                            1 Month
+                                        </button>
+
+                                        <button class="periods_item" onclick="selectorClick(this, 'periods')">
+                                            2 Months
+                                        </button>
+
+                                        <button class="periods_item active" onclick="selectorClick(this, 'periods')">
+                                            3 Months
+                                        </button>
+
+                                        <button class="periods_item" onclick="selectorClick(this, 'periods')">
+                                            More
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="tab" style="display: none;">
+
+                                    <div class="title">
+                                        What's Your Email & Name?
+                                    </div>
+
+                                    <div class="" id="" style="position: relative; margin-bottom: 32px;">
+                                        <label for="email" class="other_input_label">Email Address</label>
+                                        <img src="assets/sobaka.svg" alt="" class="other_input_img">
+                                        <input id="email" type="text" class="form-control" placeholder="Email Address"
+                                            aria-label="Username" aria-describedby="addon-wrapping">
+                                    </div>
+
+                                    <div class="" id="" style="position: relative;">
+                                        <label for="name" class="other_input_label">Name</label>
+                                        <img src="assets/person.svg" alt="" class="other_input_img">
+                                        <input id="name" type="text" class="form-control" placeholder="Name"
+                                            aria-label="Username" aria-describedby="addon-wrapping">
+                                    </div>
+                                </div>
+
+                                <div class="spasibo" id="spasibo" style="display: none;">
+                                    <div class="spasibo_cont">
+                                        <div class="spasibo_img">
+                                            <img src="assets/mail.svg" alt="">
+                                        </div>
+                                        <div class="spasibo_title">
+                                            Thank You for Your Order
+                                        </div>
+                                        <div class="spasibo_sub_text">
+                                            We'll contact you within
+                                            24 hours...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="arrow-back_container" style="display: none;" id="prevBtn"
+                                    onclick="nextPrev(-1)">
+                                    <img class="arrow-back" width="24px;" height="24px;" src="assets/arrow-back.svg"
+                                        alt="">
+                                </button>
+                                <button class="configurator_submit" id="nextBtn" onclick="nextPrev(1)">Сontinue</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
