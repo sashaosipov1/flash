@@ -77,13 +77,17 @@ function nextPrev(n) {
             success: function (responce) {
                 console.log("responce", responce);
                 var sps = document.getElementById("spasibo");
-                sps.style.display = 'block';
+                sps.style.display = 'flex';
+                var nav = document.getElementById('navigate-btn');
+                nav.style.display = 'none';
+                var bread = document.getElementById('breadcrumb');
+                bread.style.display = 'none';
             },
             error: function (err) {
                 console.log("err", err);
             }
         })
-        
+
         return;
     }
 

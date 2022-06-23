@@ -27,14 +27,32 @@
     </div>
 
     <!-- Quick button -->
-    <button type="button" class="quick_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="quick_btn" data-bs-toggle="modal" data-bs-target="#configuratorModal">
         <img src="assets/star_btn.svg" alt="">
     </button>
 
+    <div style="position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 40px;">
+        <div class="navigation" style="display: flex;">
+            <div class="navigation_item active">
+                Overview
+            </div>
+            <div class="navigation_item">
+                Service
+            </div>
+            <div class="navigation_item">
+                How it Work?
+            </div>
+        </div>
+    </div>
+
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+    <div class="modal fade" id="configuratorModal" tabindex="-1" aria-labelledby="configuratorModal" aria-hidden="true"
         data-bs-backdrop="static" data-bs-keyboard="false">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="configurator">
                     <div class="left-block">
@@ -45,34 +63,40 @@
                     </div>
                     <div class="right-block">
                         <div class="main">
-                            <div>
-                                <div class="breadcrumb">
-                                    <div class="breadcrumb_item step active">
-                                        <div class="breadcrumb_number">
-                                            1
+                            <div class="test" style="height: 100%; overflow: scroll;">
+                                <div class="breadcrumb" id="breadcrumb">
+                                    <div style="display: flex;">
+                                        <div class="breadcrumb_item step active">
+                                            <div class="breadcrumb_number">
+                                                1
+                                            </div>
+                                            <div class="breadcrumb_title">
+                                                Select Chain
+                                            </div>
                                         </div>
-                                        <div class="breadcrumb_title">
-                                            Select Chain
+
+                                        <div class="breadcrumb_item step">
+                                            <div class="breadcrumb_number">
+                                                2
+                                            </div>
+                                            <div class="breadcrumb_title">
+                                                Desired Period
+                                            </div>
+                                        </div>
+
+                                        <div class="breadcrumb_item step">
+                                            <div class="breadcrumb_number">
+                                                3
+                                            </div>
+                                            <div class="breadcrumb_title">
+                                                Contact Information
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="breadcrumb_item step">
-                                        <div class="breadcrumb_number">
-                                            2
-                                        </div>
-                                        <div class="breadcrumb_title">
-                                            Desired Period
-                                        </div>
-                                    </div>
-
-                                    <div class="breadcrumb_item step">
-                                        <div class="breadcrumb_number">
-                                            3
-                                        </div>
-                                        <div class="breadcrumb_title">
-                                            Contact Information
-                                        </div>
-                                    </div>
+                                    <button type="button" class="close_btn" data-bs-dismiss="modal">
+                                        <img src="assets/Round Button.svg" alt="">
+                                    </button>
                                 </div>
 
                                 <div class="tab" style="display: none;">
@@ -118,8 +142,8 @@
 
                                     <div class="other" id="other_container" style="position: relative;">
                                         <label for="other_input" class="other_input_label">Other Chain</label>
-                                        <img src="assets/sobaka.svg" alt="" class="other_input_img">
-                                        <input id="other_input" type="text" class="form-control" autofocus
+                                        <img src="assets/Icon.svg" alt="" class="other_input_img">
+                                        <input id="other_input" type="text" class="conf_input" autofocus
                                             placeholder="Type your chain here..." aria-label="Username"
                                             aria-describedby="addon-wrapping">
                                     </div>
@@ -163,15 +187,36 @@
                                     <div class="" id="" style="position: relative; margin-bottom: 32px;">
                                         <label for="email" class="other_input_label">Email Address</label>
                                         <img src="assets/sobaka.svg" alt="" class="other_input_img">
-                                        <input id="email" type="text" class="form-control" placeholder="Email Address"
+                                        <input id="email" type="text" class="conf_input" placeholder="Email Address"
                                             aria-label="Username" aria-describedby="addon-wrapping">
                                     </div>
 
-                                    <div class="" id="" style="position: relative;">
+                                    <div class="" id="" style="position: relative; margin-bottom: 64px;">
                                         <label for="name" class="other_input_label">Name</label>
                                         <img src="assets/person.svg" alt="" class="other_input_img">
-                                        <input id="name" type="text" class="form-control" placeholder="Name"
+                                        <input id="name" type="text" class="conf_input" placeholder="Name"
                                             aria-label="Username" aria-describedby="addon-wrapping">
+                                    </div>
+
+                                    <div class="title">
+                                        Any Comments or Questions?
+                                    </div>
+
+                                    <textarea name="" id="" cols="30" rows="10"
+                                        placeholder="Enter Comments or Questions?" style="padding: 28px 20px;
+                                    
+                                    width: 100%;
+                                    height: 160px;
+                                    
+                                    background: #FAFAFA;
+                                    border-radius: 20px;
+                                    margin-bottom: 64px;"></textarea>
+
+                                    <div class="privacy">
+                                        <input class="check-box-input" type="checkbox" id="check1" checked>
+                                        <label for="check1"></label>
+                                        I Agree to FlashNodes <a href="">Terms of Service</a> & <a href="">Privacy
+                                            Policy</a>.
                                     </div>
                                 </div>
 
@@ -191,7 +236,7 @@
                                 </div>
                             </div>
 
-                            <div class="btn-group">
+                            <div class="btn-group" id="navigate-btn">
                                 <button class="arrow-back_container" style="display: none;" id="prevBtn"
                                     onclick="nextPrev(-1)">
                                     <img class="arrow-back" width="24px;" height="24px;" src="assets/arrow-back.svg"
@@ -205,6 +250,17 @@
             </div>
         </div>
     </div>
+
+    <!-- <div class="main_container">
+        <div class="main_title">
+            Make Full Nodes
+            Work for You
+        </div>
+        <div class="try_btn">
+            <img src="" alt="">
+            Try Now
+        </div>
+    </div> -->
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
